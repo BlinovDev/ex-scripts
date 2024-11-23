@@ -41,8 +41,18 @@ defmodule Math do
 
     def div(_a, 0), do: "You cannot process operation X/0"
 
-    def div(a, b) when is_number(a) and is_number(b), do: a/b
+    def div(a, b) when is_number(a) and is_number(b), do: a/b # when is guard closes
 
+    # GUARD CLOSES SUPPORTS
+    # == > < >= <=
+    # + - *
+    # Bool: and, or, !
+    # in
+    # ++ <> for arrays or strings
+    # is_number is_list is_atom
+    # Built-in funcs like abs/1 elem/2 length/1
+
+    # fallback
     def div(_, _), do: "nil"
 end
 
@@ -55,3 +65,16 @@ Math.div(10, 5) |> IO.puts()
 Math.div(10, 0) |> IO.puts()
 
 Math.div(10, "test") |> IO.puts()
+
+# Domashka
+defmodule Domashka do
+    def factorial(1) do
+      1
+    end
+
+    def factorial(a) when a > 1 do
+        a * factorial(a - 1)
+    end
+end
+
+Domashka.factorial(5) |> IO.puts()
